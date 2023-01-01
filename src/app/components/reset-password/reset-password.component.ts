@@ -5,7 +5,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    return !!(control && control.valid && (control.dirty || control.touched) && !form.valid);
+    return !!(control &&  control.valid && (control.dirty || control.touched) && form.hasError('notMatched'));
   }
 }
 
@@ -78,7 +78,7 @@ export class ResetPasswordComponent implements OnInit {
 
   checkValidations(control, type) {
     switch (type) {
-      case 'special-charactor':
+      case 'special-character':
         return /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(control.value);;
       case 'number':
         return /\d/.test(control.value);
