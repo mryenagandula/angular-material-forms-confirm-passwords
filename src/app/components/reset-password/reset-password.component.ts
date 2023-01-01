@@ -40,27 +40,6 @@ export class ResetPasswordComponent implements OnInit {
     console.log(this.form.getRawValue())
   }
 
-  public isStringContainsNumber(control) {
-    return /\d/.test(control.value);
-  }
-
-  public isStringLengthEightOrNot(control) {
-    return control.value.length >= 8 && control.value.length <= 16;
-  }
-
-  public isStringContainsUpperCaseLetter(control) {
-    return /[A-Z]/.test(control.value);
-  }
-
-  public isStringContainsLowerCaseLetter(control) {
-    return /[a-z]/.test(control.value);
-  }
-
-  public isStringContainsSpecialCharacter(control) {
-    const pattern = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    return pattern.test(control.value);
-  }
-
   public checkingPasswords(formGroup: FormGroup) {
     if (
       formGroup.controls.newPassword.value &&
